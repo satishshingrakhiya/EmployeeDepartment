@@ -36,7 +36,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public EmployeeDepartment getEmployeeWithDepartment(Long employeeId) {
         Employee employee = employeeRepository.findById(employeeId).get();
-        Department department = restTemplate.getForObject("http://localhost:8080/api/department/"+employee.getDepartmentId(), Department.class);
+        Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/api/department/"+employee.getDepartmentId(), Department.class);
+        System.out.println(department.toString());
         return new EmployeeDepartment(employee, department);
     }
 }
