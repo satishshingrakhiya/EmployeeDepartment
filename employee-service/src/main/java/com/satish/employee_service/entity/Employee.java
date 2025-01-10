@@ -4,11 +4,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "employees")
 public class Employee {
     @Id
@@ -20,6 +19,8 @@ public class Employee {
     private String email;
     @Column(name = "departmentId")
     private Long departmentId;
+    @Value("${hello.world}")
+    public static String hello;
 
     public Employee() {
     }

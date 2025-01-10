@@ -17,6 +17,7 @@ public class EmployeeController {
 
     @GetMapping
     public List<Employee> getAllEmployees() {
+        System.out.println(Employee.hello);
         return employeeService.getAllEmployees();
     }
 
